@@ -1,0 +1,36 @@
+{
+    "listaProductos" : [
+        {
+            "titulo":"Samsung a02",
+            "precio":"20.000",
+            "imagen" :"https://www.muycomputer.com/wp-content/uploads/2021/01/Samsung-Galaxy-A02.jpg",
+            "descripcion": "CPU 1.4 Ram 2 gb Pantalla 5p Memoria 32gb",
+            "stock": "45"
+            
+        },
+        {
+            "titulo":"Samsung a22",
+            "precio":"29.000",
+            "imagen" :"https://images.samsung.com/is/image/samsung/p6pim/ph/feature/143812191/ph-feature-streamlined-design-aesthetics-474179574?$FB_TYPE_A_MO_JPG$",
+            "descripcion": "CPU 1.6 Ram 3 gb Pantalla 5p Memoria 64gb",
+            "stock": "30"
+            
+        },
+        {
+            "titulo":"Samsung a31",
+            "precio":"32.000",
+            "imagen" :"https://i.blogs.es/56c261/galaxy-a31/1366_2000.jpg",
+            "descripcion": "CPU 1.6 Ram 4 gb Pantalla 5.5p Memoria 64gb",
+            "stock": "15"
+            
+        },
+        {
+            "titulo":"Samsung a32",
+            "precio":"36.000",
+            "imagen" :"https://shop.samsung.com/latin/pub/media/catalog/product/cache/a69170b4a4f0666a52473c2224ba9220/i/m/img-prod_galaxy-a32_1.png",
+            "descripcion": "CPU 1.8 Ram 4 gb Pantalla 5.5p Memoria 128gb",
+            "stock": "20"
+            
+        }
+    ]
+}

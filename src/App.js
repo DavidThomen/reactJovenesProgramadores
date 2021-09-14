@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Producto from './componentes/productos';
+import { Container, Row } from 'reactstrap';
+import Navegacion from './componentes/Navegacion';
+import { listaProductos } from './listaProductos.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+console.log(listaProductos);
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      listaProductos
+    };
+  }
+  render() {
+    const arregloComponente = this.state.listaProductos.map(
+      (listaProductos, i) => {
+        return (
+          <Producto
+            key={i}
+            titulo={listaProductos.titulo}
+            imagen={listaProductos.imagen}
+            descripcion={listaProductos.descripcion}
+            precio={listaProductos.precio}
+            stock={listaProductos.stock}
+          />
+        )
+      }
+    )
+    return (
+      <Container>
+        <Navegacion titulo='Tienda' />
+        <Row>
+          {arregloComponente}
+        </Row>
+      </Container >
+    );
+  }
 }
 
 export default App;
