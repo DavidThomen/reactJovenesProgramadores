@@ -6,7 +6,7 @@ import Navegacion from './componentes/Navegacion';
 import { listaProductos } from './listaProductos.json';
 
 
-console.log(listaProductos);
+// console.log(listaProductos);
 
 class App extends React.Component {
   constructor() {

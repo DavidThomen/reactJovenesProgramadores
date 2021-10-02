@@ -1,6 +1,6 @@
 import React from "react";
 import { Popover, PopoverHeader, PopoverBody, Table, Badge, Button } from 'reactstrap';
-import listaCarrito from '../listaCarrito.json'
+import { listaCarrito } from '../listaCarrito.json'
 
 class Carrito extends React.Component {
     constructor() {
@@ -16,23 +16,30 @@ class Carrito extends React.Component {
             popoverOpen: !prevState.popoverOpen
         }));
     }
-    
+
     render() {
-        const arregloCarrito = this.state.listaCarrito.map((listaCarrito, i)=>{
-                return(
-                    <tr>
-                        <td>{(i += 1)}</td>
-                        <td>{listaCarrito.titulo}</td>
-                        <td>{listaCarrito.precio}</td>
-                    </tr>
-                );
-            }
+        const arregloCarrito = this.state.listaCarrito.map((listaCarrito, i) => {
+            return (
+                <tr>
+                    <td>{(i += 1)}</td>
+                    <td>{listaCarrito.titulo}</td>
+                    <td>${Intl.NumberFormat("de-De").format(listaCarrito.precio)}</td>
+                </tr>
+            );
+        }
         )
+        function sumaTotal() {
+            let total = 0;
+            for (const producto of listaCarrito) {
+                total += producto.precio;
+            }
+            return total;
+        };
         return (
             <div>
                 <Button id='Popover1'>
                     <span className="material-icons">add_shopping_cart</span>
-                    <Badge color='secondary'>{arregloCarrito.length}</Badge>
+                    <Badge color='secondary' id="badgeCarrito">{listaCarrito.length}</Badge>
                 </Button>
                 <Popover target='Popover1' placement='bottom' isOpen={this.state.popoverOpen} toggle={this.toggle}>
                     <PopoverHeader>Listado de compras</PopoverHeader>
@@ -48,6 +55,13 @@ class Carrito extends React.Component {
                             <tbody>
                                 {arregloCarrito}
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                <td>Total:</td>
+                                <td></td>
+                                <td>${Intl.NumberFormat("de-De").format(sumaTotal())}</td>
+                                </tr>
+                            </tfoot>
                         </Table>
                     </PopoverBody>
                 </Popover>
